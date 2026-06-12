@@ -1,15 +1,28 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/layout/Navbar";
+import BuyTicket from "./pages/BuyTicket";
+import MyPurchases from "./pages/MyPurchases";
+import DashboardAccess from "./pages/DashboardAccess";
+import DashboardAdmin from "./pages/DashboardAdmin";
+import DashboardOrganizer from "./pages/DashboardOrganizer";
+import Statistics from "./pages/Statistics";
+import Notifications from "./pages/Notifications";
+
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-5xl font-bold text-pink-400">
-          PartyHub funcionando
-        </h1>
-        <p className="mt-4 text-lg text-slate-300">
-          React + Tailwind instalado correctamente
-        </p>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<BuyTicket />} />
+        <Route path="/mis-compras" element={<MyPurchases />} />
+        <Route path="/dashboard-acceso" element={<DashboardAccess />} />
+        <Route path="/dashboard-admin" element={<DashboardAdmin />} />
+        <Route path="/dashboard-organizador" element={<DashboardOrganizer />} />
+        <Route path="/estadisticas" element={<Statistics />} />
+        <Route path="/notificaciones" element={<Notifications />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
